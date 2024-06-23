@@ -20,7 +20,7 @@ const PredictForm = () => {
     setError(null);
 
     try {
-      const response = await axios.post('https://one56-pa2.onrender.com/predict', { text });
+      const response = await axios.post('https://edwjin-docker-classifier.hf.space/predict', { text });
       setResult(response.data);
     } catch (err) {
       setError('Error making prediction');
