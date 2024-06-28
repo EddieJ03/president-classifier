@@ -13,11 +13,21 @@ const PredictForm = () => {
   const [result, setResult] = useState<PredictionResult | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [warning, setWarning] = useState<string | null>(null);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError(null);
+    setWarning(null);
+
+    const wordCount = text.trim().split(/\s+/).length;
+
+    console.log(wordCount)
+
+    if(wordCount > 512) {
+      setWarning('Text is pretty long, will not capture all meaning');
+    }
 
     try {
       const response = await axios.post('https://edwjin-docker-classifier.hf.space/predict', { text });
@@ -94,8 +104,9 @@ const PredictForm = () => {
           {loading ? 'Predicting...' : 'Predict'}
         </button>
       </form>
-      {result && <div style={{textAlign: 'center', marginTop: '15px'}}>Prediction: {JSON.stringify(result)}</div>}
-      {error && <div style={{ color: 'red' }}>{error}</div>}
+      {error && <div style={{ textAlign: 'center', color: 'red' }}>ERROR: {error}</div>}
+      {warning && <div style={{ textAlign: 'center', color: '#CCCC00' }}>WARNING: {warning}</div>}
+      {result && <div style={{textAlign: 'center', marginTop: '15px'}}>PREDICTION: {JSON.stringify(result)}</div>}
     </div>
   );
 };
