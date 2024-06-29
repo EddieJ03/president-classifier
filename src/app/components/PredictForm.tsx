@@ -4,7 +4,7 @@ import { useState, FormEvent } from 'react';
 import axios from 'axios';
 
 interface PredictionResult {
-  prediction: string;
+  predicted: string;
   [key: string]: any; // Adjust according to your API response structure
 }
 
@@ -32,6 +32,7 @@ const PredictForm = () => {
     try {
       const response = await axios.post('https://edwjin-docker-classifier.hf.space/predict', { text });
       setResult(response.data);
+      console.log(response.data);
     } catch (err) {
       setError('Error making prediction');
     } finally {
@@ -106,7 +107,7 @@ const PredictForm = () => {
       </form>
       {error && <div style={{ textAlign: 'center', color: 'red' }}>ERROR: {error}</div>}
       {warning && <div style={{ textAlign: 'center', color: '#CCCC00' }}>WARNING: {warning}</div>}
-      {result && <div style={{textAlign: 'center', marginTop: '15px'}}>PREDICTION: {JSON.stringify(result)}</div>}
+      {result && <div style={{textAlign: 'center', marginTop: '15px'}}>RESULT: {result["predicted"]}</div>}
     </div>
   );
 };
