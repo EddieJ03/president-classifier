@@ -107,7 +107,7 @@ const PredictForm = () => {
       </form>
       {error && <div style={{ textAlign: 'center', color: 'red' }}>ERROR: {error}</div>}
       {warning && <div style={{ textAlign: 'center', color: '#CCCC00' }}>WARNING: {warning}</div>}
-      {result && <div style={{textAlign: 'center', marginTop: '15px'}}>PREDICTION: {result["predicted"]}</div>}
+      {result && <div style={{textAlign: 'center', marginTop: '15px'}}>RESULT: {result["predicted"]}</div>}
     </div>
   );
 };
