@@ -25,7 +25,7 @@ const PredictForm = () => {
 
     console.log(wordCount)
 
-    if(wordCount > 512) {
+    if(wordCount > 100) {
       setWarning('Text is pretty long, will not capture all meaning');
     }
 
