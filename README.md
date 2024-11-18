@@ -6,6 +6,6 @@ My President Text Classifier model is a Transformer Encoder. Given a short snipp
  
 HuggingFace Space: https://huggingface.co/spaces/edwjin/docker-classifier/tree/main (also where the code files and datasets are!)
 
-All my training is done on a Google Colab (for that free TPU): https://colab.research.google.com/drive/15NDeBQ0AsHys_8Hbp1S81auwyJGGWw8M
+Repo with distributed GPU model training code can be found here: [Training Code](https://github.com/EddieJ03/distributed-pytorch)
 
-Still working on ways to improve it! (current statistics: Training Accuracy: ~95%, Test Accuracy: ~80%)
+Still working on ways to improve it! (Current Test Accuracy: ~82%)
